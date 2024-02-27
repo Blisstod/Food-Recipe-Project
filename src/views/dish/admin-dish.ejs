@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Page Dish</title>
+    <link rel="stylesheet" href="/styles/dish.css">
+</head>
+<body>
+    <h1>Admin - All Dishes</h1>
+    <a href="/dishes/admin/add">Add Dish</a>
+    <ul>
+        <% dishes.forEach(function(dish){ %>
+            <li>
+                <h2><%= dish.names.en %></h2>
+                <div>
+                    <a href="/dishes/admin/<%= dish._id %>/edit">Edit</a>
+                    <form action="/dishes/admin/<%= dish._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Dish</title>
+    <link rel="stylesheet" href="/styles/dish.css">
+</head>
+<body>
+    <h1>Edit Dish</h1>
+    <form action="/dishes/admin/<%= dish._id %>?_method=PUT" method="POST">
+        <input type="text" name="names[en]" value="<%= dish.names.en %>" required>
+        <input type="text" name="names[ru]" value="<%= dish.names.ru %>" required>
+        <textarea name="descriptions[en]" required><%= dish.descriptions.en %></textarea>
+        <textarea name="descriptions[ru]" required><%= dish.descriptions.ru %></textarea>
+        <input type="text" name="images" value="<%= dish.images[0] || '' %>" placeholder="Image URL 1">
+        <input type="text" name="images" value="<%= dish.images[1] || '' %>" placeholder="Image URL 2">
+        <input type="text" name="images" value="<%= dish.images[2] || '' %>" placeholder="Image URL 3">
+        <input type="number" name="stars" value="<%= dish.stars %>" min="1" max="5" required>
+        <button type="submit">Update Dish</button>
+    </form>
+
+</body>
+</html>

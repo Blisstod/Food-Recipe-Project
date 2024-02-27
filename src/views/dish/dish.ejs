@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dishes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="/styles/dish.css">-->
+</head>
+<body>
+
+<%- include('../partials/header') %>
+    <div class="container">
+
+        <h1>All Dishes</h1>
+        <% dishes.forEach(dish => { %>
+            <div class="dish">
+                <h3><%= dish.names.en %></h3>
+                <p><%= dish.descriptions.en %></p>
+                <div>
+                    <% for(let i = 1; i <= 5; i++) { %>
+                        <% if(i <= dish.stars) { %>
+                            <span>&#9733;</span>
+                        <% } else { %>
+                            <span>&#9734;</span>
+                        <% } %>
+                    <% } %>
+                </div>
+                <div id="carousel<%= dish._id %>" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <% dish.images.forEach(function(image, index){ %>
+                            <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                                <img src="<%= image %>" class="d-block w-100" alt="Dish Image">
+                            </div>
+                        <% }); %>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel<%= dish._id %>" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel<%= dish._id %>" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.7.12/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
