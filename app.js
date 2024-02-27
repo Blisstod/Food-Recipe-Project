@@ -43,10 +43,10 @@ i18next
     .use(Backend)
     .use(middleware.LanguageDetector)
     .init({
-        fallbackLng: 'en', // Set fallback to English or any other languages you support
-        preload: ['en', 'ru'], // Preload languages you support
+        fallbackLng: 'en',
+        preload: ['en', 'ru'],
         backend: {
-            loadPath: __dirname + '/locales/{{lng}}.json',
+            loadPath: __dirname + '/src/locales/{{lng}}.json',
         },
         detection: {
             order: ['session', 'querystring', 'cookie'],
@@ -60,7 +60,7 @@ i18next
     });
 
 app.use(session({
-    secret: 'asdf',
+    secret: process.env.SESSION_SECRET || 'yourSuperSecret',
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 },

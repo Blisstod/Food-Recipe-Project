@@ -14,27 +14,27 @@
 
     <div class="container mt-5">
 
-        <h1>Registration</h1>
+        <h1><%= t('register') %></h1>
         <form action="/register" method="POST">
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
+                <label for="username" class="form-label"><%= t('username')%></label>
                 <input type="text" class="form-control" id="username" name="username" required>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
+                <label for="email" class="form-label"><%= t('emailAddress')%></label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
+                <label for="password" class="form-label"><%= t('password')%></label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
             <div class="mb-3">
-                <label for="rePassword" class="form-label">Retype your Password</label>
+                <label for="rePassword" class="form-label"><%= t('rePassword')%></label>
                 <input type="password" class="form-control" id="rePassword" name="rePassword" required>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary"><%= t('register') %></button>
 
-            <p class="my-3">Already have an account? <a href="/login">Log In</a></p>
+            <p class="my-3"><%= t('already_account') %> <a href="/login"><%= t('login') %></a></p>
         </form>
         <% if(locals.message) { %>
             <div class="alert alert-danger" role="alert"><%= message %></div>

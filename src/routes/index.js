@@ -15,6 +15,7 @@ router.use('/dishes', dishRoutes)
 
 router.get('/change-lang/:lang', (req, res) => {
     const selectedLang = req.params.lang;
+    console.log("Changing language to:", selectedLang); // Added logging
     req.session.lang = selectedLang;
     req.i18n.changeLanguage(selectedLang, (err) => {
         if (err) {

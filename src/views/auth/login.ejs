@@ -12,20 +12,20 @@
 <%- include('../partials/header', { login: login, username: username }) %>
 
     <div class="container mt-5">
-        <h1>Login</h1>
+        <h1><%= t('login') %></h1>
         <form action="/login" method="POST">
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
+                <label for="username" class="form-label"><%= t('username')%></label>
                 <input type="text" class="form-control" id="username" name="username" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
+                <label for="password" class="form-label"><%= t('password')%></label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary"><%= t('login') %></button>
         </form>
 
-        <p class = "my-3">Don't have an account? <a href="/register">Register</a></p>
+        <p class = "my-3"><%= t('no_account') %> <a href="/register"><%= t('register') %></a></p>
         <% if(locals.message) { %>
             <div class="alert alert-danger" role="alert"><%= message %></div>
         <% } %>

@@ -1,35 +1,111 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+/* Custom CSS */
+.header {
+    background-color: #ffffff; /* Header background color */
+    padding: 10px 0; /* Add padding */
 }
 
-.navbar {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.navbar-brand {
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold; /* Make it bold */
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.navbar-nav .nav-item {
+    margin-right: 10px; /* Add space between menu items */
 }
 
-h2 {
-    color: #333;
+.navbar-nav .nav-link {
+    color: #333333; /* Text color */
+    font-weight: 500; /* Medium font weight */
 }
 
-.mb-3 label {
-    font-weight: bold;
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Hover color */
 }
 
+.navbar-toggler-icon {
+    background-color: #333333; /* Toggle icon color */
+}
+
+.navbar-toggler {
+    border: none; /* Remove border */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        margin-right: 0; /* Reset margin for mobile */
+        margin-bottom: 10px; /* Add bottom margin for mobile */
+    }
+}
+
+/* main.css */
+
+/* Header and Main Page Title */
+.header-title {
+    color: #333333;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Navigation links */
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: #333333;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+/* Main Content Paragraph */
+.container p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* main.css */
+
+/* Header and Main Page Title */
+.header-title {
+    color: #333333;
+    font-size: 28px;
+}
+
+/* Button Container */
+.container .d-grid {
+    margin-top: 20px; /* Added margin top */
+}
+
+/* Button Styles */
 .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    font-size: 20px; /* Increased font size */
 }
 
-.table {
-    margin-top: 20px;
+/* main.css */
+
+/* Header and Main Page Title */
+.header-title {
+    color: #ffffff; /* White text */
 }
+
+/* Button Container */
+.container .d-grid {
+    margin-top: 20px; /* Added margin top */
+}
+
+/* Button Styles */
+.btn-primary {
+    font-size: 20px; /* Increased font size */
+    background-color: #007bff; /* Button background color */
+    border-color: #007bff; /* Button border color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Button background color on hover */
+    border-color: #0056b3; /* Button border color on hover */
+}
+

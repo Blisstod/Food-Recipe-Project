@@ -7,14 +7,137 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dishes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!--    <link rel="stylesheet" href="/styles/dish.css">-->
+    <style>
+        /* dish.css */
+
+        /* Style for the dish container */
+        .container {
+            padding: 20px;
+        }
+
+        /* Style for individual dish */
+        .dish {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center; /* Center align content */
+        }
+
+        /* Style for dish title */
+        .dish h3 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for dish description */
+        .dish p {
+            color: #666;
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* Style for individual star icon */
+        .dish span {
+            color: #ffd700; /* Gold color */
+            font-size: 24px; /* Decreased font size */
+            margin-right: 5px; /* Space between stars */
+        }
+
+        /* Style for carousel */
+        .carousel {
+            margin-top: 20px;
+        }
+
+        /* Style for carousel images */
+        .carousel-item img {
+            max-width: 1000px; /* Limit image width */
+            margin: 0 auto; /* Center align images */
+        }
+
+        /* Style for carousel controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            color: #333;
+            opacity: 1;
+        }
+
+        /* Style for carousel indicator icons */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #333;
+        }
+
+        /* Style for active carousel indicator icon */
+        .carousel-item.active .carousel-control-prev-icon,
+        .carousel-item.active .carousel-control-next-icon {
+            filter: invert(1);
+        }
+
+        .header .container {
+            background-color: #ffffff; /* Header background color */
+            padding: 10px 0; /* Add padding */
+        }
+
+        .navbar-brand {
+            font-size: 24px; /* Adjust font size */
+            font-weight: bold; /* Make it bold */
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 10px; /* Add space between menu items */
+        }
+
+        .navbar-nav .nav-link {
+            color: #333333; /* Text color */
+            font-weight: 500; /* Medium font weight */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff; /* Hover color */
+        }
+
+        .navbar-toggler-icon {
+            background-color: #333333; /* Toggle icon color */
+        }
+
+        .navbar-toggler {
+            border: none; /* Remove border */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar-nav .nav-item {
+                margin-right: 0; /* Reset margin for mobile */
+                margin-bottom: 10px; /* Add bottom margin for mobile */
+            }
+        }
+
+        /* Navigation links */
+        .navbar-nav .nav-item {
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+
+
+    </style>
 </head>
 <body>
 
 <%- include('../partials/header') %>
     <div class="container">
 
-        <h1>All Dishes</h1>
+        <h1><%= t('dishH1') %></h1>
         <% dishes.forEach(dish => { %>
             <div class="dish">
                 <h3><%= dish.names.en %></h3>

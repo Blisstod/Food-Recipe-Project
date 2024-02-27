@@ -8,25 +8,25 @@
 <body>
 <%- include('../partials/header', { req: req }) %>
 <div class="container mt-5">
-    <h2>Nutrition Analysis</h2>
+    <h2><%= t('nutritionMain') %></h2>
     <form id="nutritionForm" action="/nutrition" method="POST">
         <div class="mb-3">
-            <label for="query" class="form-label">Enter food item:</label>
+            <label for="query" class="form-label"><%= t('enterFood') %></label>
             <input type="text" class="form-control" id="query" name="query" required>
         </div>
-        <button type="submit" class="btn btn-primary">Analyze</button>
+        <button type="submit" class="btn btn-primary"><%= t('analyze') %></button>
     </form>
     <% if (nutritionData) { %>
         <div class="result alert alert-info" role="alert">
             <p><%= nutritionData.name %> in <%=nutritionData.serving_size_g%>g</p>
-            <p>Calories: <%= nutritionData.calories %></p>
-            <p>Protein: <%= nutritionData.protein_g %>g</p>
-            <p>Fat: <%= nutritionData.fat_total_g %>g</p>
-            <p>Carbohydrates: <%= nutritionData.carbohydrates_total_g %>g</p>
-            <p>Sugar: <%= nutritionData.sugar_g%>g</p>
+            <p><%= t('calories') %>: <%= nutritionData.calories %></p>
+            <p><%= t('protein') %>: <%= nutritionData.protein_g %>g</p>
+            <p><%= t('fat') %>: <%= nutritionData.fat_total_g %>g</p>
+            <p><%= t('carbohydrates') %>: <%= nutritionData.carbohydrates_total_g %>g</p>
+            <p><%= t('sugar') %>: <%= nutritionData.sugar_g%>g</p>
         </div>
     <% } else { %>
-        <p>No nutrition data to display.</p>
+        <p><%= t('noNutrition') %></p>
     <% } %>
 
 </div>
