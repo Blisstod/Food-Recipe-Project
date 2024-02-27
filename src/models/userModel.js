@@ -26,9 +26,9 @@ const userSchema = new mongoose.Schema({
     deletionDate: {
         type: Date
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
+    role: {
+        type: String,
+        default: 'user'
     },
 
 });

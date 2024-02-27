@@ -13,7 +13,7 @@ class AdminService {
         }
     }
 
-    async addUser(username, email, password, isAdmin) {
+    async addUser(username, email, password, role) {
         try {
             let userExists = await User.findOne({ email });
             if (userExists) {
@@ -32,32 +32,32 @@ class AdminService {
                 username,
                 email,
                 password: hashedPassword,
-                isAdmin
+                role
             });
 
-            const savedUser = await newUser.save();
-            return savedUser;
+            const user = await newUser.save();
+            return user;
         } catch (error) {
             throw new Error(error.message);
         }
     }
 
-    async editUser(userId, username, email, password, isAdmin) {
+    async editUser(userId, username, email, password, role) {
         try {
             const user = await User.findById(userId);
             if (!user) {
                 throw new Error('User not found');
             }
 
-            const updatedData = { username, email, isAdmin, updateDate: new Date() };
+            const updatedData = { username, email, role, updateDate: new Date() };
 
             if (password) {
                 const salt = await bcrypt.genSalt(10);
                 updatedData.password = await bcrypt.hash(password, salt);
             }
 
-            const updatedUser = await User.findByIdAndUpdate(userId, updatedData, { new: true });
-            return updatedUser;
+            const updated = await User.findByIdAndUpdate(userId, updatedData, { new: true });
+            return updated;
         } catch (error) {
             throw new Error(error.message);
         }

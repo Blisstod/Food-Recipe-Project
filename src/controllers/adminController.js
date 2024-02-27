@@ -12,8 +12,8 @@ class AdminController {
 
     async addUser(req, res) {
         try {
-            const { username, email, password, isAdmin } = req.body;
-            const savedUser = await adminService.addUser(username, email, password, isAdmin);
+            const { username, email, password, role } = req.body;
+            const savedUser = await adminService.addUser(username, email, password, role);
             res.status(201).json({ message: 'User added successfully', user: savedUser });
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -22,9 +22,9 @@ class AdminController {
 
     async editUser(req, res) {
         try {
-            const { username, email, password, isAdmin } = req.body;
+            const { username, email, password, role } = req.body;
             const userId = req.params.id;
-            const updateUser = await adminService.editUser(userId, username, email, password, isAdmin);
+            const updateUser = await adminService.editUser(userId, username, email, password, role);
             res.status(200).json({ message: 'User edited successfully', user: updateUser });
         } catch (error) {
             res.status(500).json({ message: error.message });
