@@ -105,6 +105,8 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Creation Date</th>
+                <th>Updated Date</th>
+                <th>Role</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -114,7 +116,8 @@
                     <td><%= user.username %></td>
                     <td><%= user.email %></td>
                     <td><%= user.creationDate.toLocaleString() %></td>
-                    <!-- Add other fields as needed -->
+                    <td><%= user.updateDate.toLocaleString() %></td>
+                    <td><%= user.role %></td>
                     <td>
                         <a href="/admin/users/<%= user._id %>/edit" class="btn btn-primary btn-sm">Edit</a>
                         <form action="/admin/users/<%= user._id %>?_method=DELETE" method="POST" style="display: inline;">
@@ -133,6 +136,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Deletion Date</th>
+                <th>Role</th>
             </tr>
         </thead>
         <tbody>
@@ -141,6 +145,7 @@
                     <td><%= deletedUser.username %></td>
                     <td><%= deletedUser.email %></td>
                     <td><%= deletedUser.deletionDate.toLocaleString() %></td>
+                    <td><%= deletedUser.role %></td>
                 </tr>
             <% }) %>
         </tbody>
